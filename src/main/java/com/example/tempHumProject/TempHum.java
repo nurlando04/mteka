@@ -1,29 +1,35 @@
 package com.example.tempHumProject;
 
 import lombok.Data;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name="temphumdata")
 @Data
 public class TempHum {
-    @Column(name="temp")
-    private double temperature;
-    @Column(name="hum")
-    private double humidity;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "serial")
-    private int index;
+    private int id;
+    @Column(name="temp")
+    private double temp;
+    @Column(name="hum")
+    private double hum;
+    @Column(name="sent_date")
+    private Date sent_date;
+    @Column(name = "device_id")
+    private int device_id;
+
+
 
     public TempHum() {
     }
 
-    public TempHum(double temperature, double humidity, int index) {
-        this.temperature = temperature;
-        this.humidity = humidity;
-        this.index = index;
+    public TempHum(double temperature, double humidity, int id) {
+        this.temp = temperature;
+        this.hum = humidity;
+        this.id = id;
     }
 }

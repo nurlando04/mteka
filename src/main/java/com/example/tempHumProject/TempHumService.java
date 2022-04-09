@@ -24,16 +24,16 @@ public class TempHumService {
         return tempHumRepository.findAll();
     }
 
-    public List<Double> getAllTemps(){
-        return tempHumRepository.getAllTemps();
+    public List<Double> getAllTemps(int device_id){
+        return tempHumRepository.getAllTemps(device_id);
     }
 
-    public List<Double> getAllHums(){
-        return tempHumRepository.getAllHums();
+    public List<Double> getAllHums(int device_id){
+        return tempHumRepository.getAllHums(device_id);
     }
 
-    public List<Double> getAllIndexes(){
-        return tempHumRepository.getAllIndexes();
+    public List<Double> getAllIndexes(int device_id){
+        return tempHumRepository.getAllIndexes(device_id);
     }
 
 }

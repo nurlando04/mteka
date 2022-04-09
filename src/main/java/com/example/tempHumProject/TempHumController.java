@@ -27,24 +27,22 @@ public class TempHumController {
         return list;
     }
 
-    @GetMapping("/getTemps")
-    public List<Double> getAllTemps(){
-        List<Double> list= tempHumService.getAllTemps();
+    @PostMapping("/getTemps")
+    public List<Double> getAllTemps(@RequestBody int device_id){
+        List<Double> list= tempHumService.getAllTemps(device_id);
         return list;
     }
 
-    @GetMapping("/getHums")
-    public List<Double> getAllHums(){
-        List<Double> list= tempHumService.getAllHums();
+    @PostMapping("/getHums")
+    public List<Double> getAllHums(@RequestBody int device_id){
+        List<Double> list= tempHumService.getAllHums(device_id);
         return list;
     }
 
-    @GetMapping("/getIndexes")
-    public List<Double> getAllIndexes(){
-        List<Double> list= tempHumService.getAllIndexes();
+    @PostMapping("/getIndexes")
+    public List<Double> getAllIndexes(@RequestBody int device_id){
+        List<Double> list= tempHumService.getAllIndexes(device_id);
         System.out.println(list.toString());
         return list;
     }
-
-
 }
