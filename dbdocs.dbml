@@ -1,0 +1,32 @@
+Project M_teka {
+  database_type: 'PostgreSQL'
+  Note: '''
+    # M-teka Database
+    **Whole database system for the M-teka project**
+  '''
+}
+
+Table organisation as U {
+  id int [pk, increment]
+  login varchar [not null]
+  password varchar [not null]
+  created_at datetime [not null,default: `now()`, note: "created time"]
+  email varchar [not null]
+  nickname varchar [not null, default: `Имя`] 
+  is_admin boolean [not null]
+}
+
+Table device {
+  id int [pk,increment]
+  user_id int [ref: > organisation.id]
+  model varchar
+  created_at datetime [not null,default: `now()`, note: "created time"]
+  }
+
+Table temphumdata {
+  id int [pk,increment]
+  temp int [not null]
+  hum int [not null]
+  sent_date date [not null]
+  device_id int [ref: > device.id]
+}
