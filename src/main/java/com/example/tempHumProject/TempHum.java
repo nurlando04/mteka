@@ -1,5 +1,6 @@
 package com.example.tempHumProject;
 
+import com.example.tempHumProject.security.Role;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -21,6 +22,7 @@ public class TempHum {
     private Date sent_date;
     @Column(name = "device_id")
     private int device_id;
+    private Role role;
 
 
 

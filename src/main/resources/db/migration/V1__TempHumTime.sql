@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS temphum.organisation(
 ALTER TABLE IF EXISTS temphum.organisation
     OWNER to temphum;
 
-CREATE TABLE IF NOT EXISTStemphum.device
+CREATE TABLE IF NOT EXISTS temphum.device
 (
     id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1000),
     user_id integer NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTStemphum.device
 ALTER TABLE IF EXISTS temphum.device
     OWNER to temphum;
 
-CREATE TABLE IF NOT EXISTStemphum.temphumdata
+CREATE TABLE IF NOT EXISTS temphum.temphumdata
 (
     id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 ),
     temp double precision NOT NULL,
