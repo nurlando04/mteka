@@ -6,12 +6,12 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import javax.persistence.*;
 
 @Entity
-@Table(name="temptable")
+@Table(name="temphumdata")
 @Data
 public class TempHum {
-    @Column(name="temperature")
+    @Column(name="temp")
     private double temperature;
-    @Column(name="humidity")
+    @Column(name="hum")
     private double humidity;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
