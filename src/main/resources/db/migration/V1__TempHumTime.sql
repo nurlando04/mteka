@@ -1,11 +1,12 @@
 CREATE TABLE IF NOT EXISTS temphum.organisation(
     id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 ),
-    login character varying(64) NOT NULL,
+    login character varying(64) NOT NULL unique ,
     password character varying(255) NOT NULL,
     created_at timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     email character varying(64) NOT NULL,
     nickname character varying(64) DEFAULT 'Организация'::character varying NOT NULL,
     is_admin boolean NOT NULL,
+    enabled boolean NOT NULL DEFAULT TRUE,
     PRIMARY KEY (id)
 );
 
@@ -46,4 +47,14 @@ CREATE TABLE IF NOT EXISTS temphum.temphumdata
 );
 
 ALTER TABLE IF EXISTS temphum.temphumdata
+    OWNER to temphum;
+
+CREATE TABLE IF NOT EXISTS temphum.authorities
+(
+    login  VARCHAR(50) NOT NULL,
+    authority VARCHAR(50) NOT NULL,
+    FOREIGN KEY (login) REFERENCES temphum.organisation (login)
+);
+
+ALTER TABLE IF EXISTS temphum.authorities
     OWNER to temphum;
